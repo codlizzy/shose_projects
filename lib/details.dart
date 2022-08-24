@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shose_projects/clipath.dart';
@@ -139,9 +140,12 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 50),
-              child: Image(
-                  width: width * .9,
-                  image: AssetImage(shoemodel[widget.index].image)),
+              // use animate-DO
+              child: FadeInUp(
+                child: Image(
+                    width: width * .9,
+                    image: AssetImage(shoemodel[widget.index].image)),
+              ),
             ),
           ],
         ),
@@ -149,6 +153,7 @@ class _DetailsPageState extends State<DetailsPage> {
     );
   }
 
+  // bottom price + card
   Container buildBottom() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 23, horizontal: 32),

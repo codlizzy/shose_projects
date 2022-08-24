@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shose_projects/model/shoe_model.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
-
+import 'Navbar.dart';
 import 'details.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,17 +28,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-
     return Scaffold(
+      drawer: Navbar(),
       backgroundColor: Colors.black,
+      // appbar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: const Icon(Icons.menu),
         title: const Padding(
-          padding: EdgeInsets.only(left: 260),
+          padding: EdgeInsets.only(left: 290),
           child: (Icon(Icons.shopping_bag)),
         ),
       ),
+      // sliding Widget
       body: SlidingSheet(
         elevation: 0,
         cornerRadius: 50,
@@ -48,6 +50,7 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Column(
           children: [
+            // background image
             Image.asset('assets/images/2.png'),
           ],
         ),
@@ -55,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           return Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 20, right: 15, left: 15),
+                margin: const EdgeInsets.only(top: 20, right: 18, left: 18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -133,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15,
-                                    color: Colors.black54),
+                                    color: Colors.black),
                               ),
                             ),
                             const SizedBox(
@@ -153,9 +156,9 @@ class _HomePageState extends State<HomePage> {
                                     child: Text(
                                       shoemodel[index].price,
                                       style: const TextStyle(
-                                          fontWeight: FontWeight.w400,
+                                          fontWeight: FontWeight.w600,
                                           color: Colors.black54,
-                                          fontSize: 13),
+                                          fontSize: 14),
                                     ),
                                   ),
                                   Padding(
@@ -164,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                                       onTap: () {},
                                       child: const Icon(
                                         Icons.shopping_cart_outlined,
-                                        size: 17,
+                                        size: 19,
                                         color: Colors.black45,
                                       ),
                                     ),
